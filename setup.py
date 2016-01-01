@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pypi-uptodate',
-    version='0.0.1',
+    version=__import__('rest_framework_docs').__version__,
     packages=['pypi-uptodate'],
     include_package_data=True,
     install_requires=[
