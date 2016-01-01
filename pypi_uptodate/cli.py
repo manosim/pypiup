@@ -1,5 +1,5 @@
-# coding: utf-8
 import click
+from requirements import Requirements
 
 
 @click.command()
@@ -10,16 +10,8 @@ def cli(requirement):
     Check whether your PyPI requirements are up to date.
     """
 
-    # click.echo("Hello World!")
     click.echo("Opening: %s" % requirement)
-
-    try:
-        requirements = open(requirement).read().splitlines()
-        for line in requirements:
-            click.echo(line)
-
-    except OSError:
-        click.secho("Could not find %s. No such file or directory." % (requirement), fg='red')
+    Requirements(requirement)
 
 if __name__ == '__main__':
     cli()
