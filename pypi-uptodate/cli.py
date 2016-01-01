@@ -3,7 +3,8 @@ import click
 
 
 @click.command()
-def cli():
+@click.option('--requirement', '-r', default='./requirements.txt', help='Specify the path of the requirements file.')
+def cli(requirement):
     """
     PyPI Up-to-date\n
     Check whether your PyPI requirements are up to date.
