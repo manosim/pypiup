@@ -20,7 +20,7 @@ def flake8_main(args):
 
 
 def run_tests_coverage(args):
-    command = subprocess.call('coverage run --source=pypi_uptodate --omit=pypi_uptodate/__init__.py -m unittest -v tests/tests.py', shell=True)
+    command = subprocess.call('coverage run --source=pypi_uptodate --omit=pypi_uptodate/__init__.py -m unittest tests/tests.py', shell=True)
     command = subprocess.call(['coverage', 'report'])
     return command
 

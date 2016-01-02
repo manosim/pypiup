@@ -38,7 +38,8 @@ class Requirement(object):
     def get_package_info(self):
         pypi_url = "https://pypi.python.org/pypi/%s/json" % (self.name)
         request = requests.get(pypi_url)
-        if request.status_code == requests.codes.ok:
+
+        if request.status_code == 200:
             response_json = request.json()
             self.latest_version = response_json["info"]["version"]
             self.valid = True

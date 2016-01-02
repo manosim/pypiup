@@ -1,26 +1,37 @@
 import unittest
-# import click
 from click.testing import CliRunner
 from pypi_uptodate.cli import cli
+from tests.mocks import TestMockedRequests
 
 
-class TestRequirements(unittest.TestCase):
+class TestRequirementsMockedRequests(TestMockedRequests):
 
-    # def setUp(self):
-        # super(TestRequiments, self).setUp()
-        # self.requirements = Requirements("requirements/requirements-tests.txt")
+    def setUp(self):
+        super(TestRequirementsMockedRequests, self).setUp()
 
     def test_cli(self):
         runner = CliRunner()
         result = runner.invoke(cli, ['-r', 'requirements/requirements-tests.txt'])
 
-        # print(result)
-        # print(result.output)
-        # print(dir(result))
-
-        # assert result.exit_code == 0
         self.assertEqual(result.exit_code, 0)
-        self.assertIn("Django", result.output)
+
+        # Django
+        self.assertIn("Needs update, From 1.7.1 to 1.9.0.", result.output)
+
+        # djangorestframework
+        self.assertIn("Up to date, 3.3.2.", result.output)
+
+        # drfdocs
+        self.assertIn("Up to date, 0.0.5.", result.output)
+
+        self.assertIn("Total Requirements: 5", result.output)
+        self.assertIn("Up to date: 2", result.output)
+        self.assertIn("Update available: 1", result.output)
+        self.assertIn("Invalid Semver: 0", result.output)
+        self.assertIn("Non PyPI Requirements: 2", result.output)
+
+
+class TestRequirementsFileNotFound(unittest.TestCase):
 
     def test_cli_file_not_found(self):
         runner = CliRunner()
