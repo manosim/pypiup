@@ -66,4 +66,4 @@ class Requirements(object):
         click.echo("  Up to date: %s" % stat_uptodate)
         click.echo("  Update available: %s" % stat_needs_update)
         click.echo("  Invalid Semver: %s" % stat_invalid_semver)
-        click.echo("  Invalid PyPI Requirements: %s" % stat_invalid)
+        click.echo("  Non PyPI Requirements: %s" % stat_invalid)
