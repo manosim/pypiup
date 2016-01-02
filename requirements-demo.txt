@@ -1,3 +1,4 @@
 Django==1.7.1
 djangorestframework==3.3.2
 drfdocs==0.0.4
+git+https://github.com/ekonstantinidis/django-rest-framework-docs@63840e15b41661e57593935f863c7648f89bf473
