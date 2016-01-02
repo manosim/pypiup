@@ -32,6 +32,6 @@ class Requirements(object):
             return click.secho("Could not find %s. No such file or directory." % (requirements_file), fg='red')
 
     def show_details(self):
-        click.echo("\n")
+        click.echo()
         for requirement in self.requirements:
             requirement.output_details()

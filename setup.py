@@ -12,6 +12,7 @@ setup(
     ],
     entry_points='''
         [console_scripts]
+        pypiuptodate=pypi_uptodate.cli:cli
         pypi_uptodate=pypi_uptodate.cli:cli
     ''',
 )

@@ -48,15 +48,13 @@ class Requirement(object):
 
     def output_details(self):
         if self.valid and self.valid_semver():
-            # click.echo("\nPackage: %s \n Current: %s Latest: %s" % (self.name, self.current_version, self.latest_version))
             comparison = semantic_version.compare(self.current_version, self.latest_version)
             if (comparison >= 0):
-                click.secho("✓ %s: Up to date, %s." % (self.name, self.current_version), fg='green')
+                click.echo("\n%s\n  %s" % (click.style("✓ %s" % self.name, fg='green'), click.style("Up to date, %s." % self.current_version)))
             else:
-                click.secho("✗ %s: Needs update, From %s to %s." % (self.name, self.current_version, self.latest_version), fg='red')
-
+                click.echo("\n%s\n  %s" % (click.style("✗ %s" % self.name, fg='red'), click.style("Needs update, From %s to %s." % (self.current_version, self.latest_version))))
         elif self.valid and not self.valid_semver():
             click.secho("✗ %s: Could not compare. Invalid semver, From %s to %s." % (self.name, self.current_version, self.latest_version), fg='cyan')
-            # click.secho("\nSkipping non PyPI requirement...\n", fg='blue')
         else:
-            click.echo("INVALID REQUIREMENT NAME?")
+            # Invalid Requirement (ie. GitHub Repository)
+            pass
