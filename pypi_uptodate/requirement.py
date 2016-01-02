@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 import click
 import re
 import requests
@@ -17,6 +20,7 @@ class Requirement(object):
         self.current_version = None
         self.latest_version = None
         self.valid = False
+        self.status = None
         self.setUp(requirement)
 
     def setUp(self, requirement):
@@ -25,6 +29,7 @@ class Requirement(object):
             self.name = regex[0]
             self.current_version = regex[1]
             self.get_package_info()
+            self.compare()
         except IndexError:
             # If it cannot find the name and version assume
             # it is not a pypi packages (ie. GitHub Repository)
@@ -43,17 +48,24 @@ class Requirement(object):
         valid_latest = semantic_version.validate(self.latest_version)
         return valid_current and valid_latest
 
-    def output_details(self):
-        if self.valid and self.valid_semver():
-            # click.echo("\nPackage: %s \n Current: %s Latest: %s" % (self.name, self.current_version, self.latest_version))
+    def compare(self):
+        if self.valid_semver():
             comparison = semantic_version.compare(self.current_version, self.latest_version)
             if (comparison >= 0):
-                click.secho("✓ %s: Up to date, %s." % (self.name, self.current_version), fg='green')
+                self.status = "UPTODATE"
             else:
-                click.secho("✗ %s: Needs update, From %s to %s." % (self.name, self.current_version, self.latest_version), fg='red')
-
-        elif self.valid and not self.valid_semver():
-            click.secho("✗ %s: Could not compare. Invalid semver, From %s to %s." % (self.name, self.current_version, self.latest_version), fg='cyan')
-            # click.secho("\nSkipping non PyPI requirement...\n", fg='blue')
+                self.status = "NEEDS_UPDATE"
         else:
-            click.echo("INVALID REQUIREMENT NAME?")
+            self.status = "INVALID_SEMVER"
+
+    def output_details(self):
+        if self.valid:
+            if self.status == "UPTODATE":
+                click.echo("\n%s\n  %s" % (click.style("✓ %s" % self.name, bold=True, fg='green'), click.style("Up to date, %s." % self.current_version)))
+            elif self.status == "NEEDS_UPDATE":
+                click.echo("\n%s\n  %s" % (click.style("✗ %s" % self.name, bold=True, fg='red'), click.style("Needs update, From %s to %s." % (self.current_version, self.latest_version))))
+            elif self.status == "INVALID_SEMVER":
+                click.echo("\n%s\n  %s" % (click.style("✗ %s" % self.name, bold=True, fg='cyan'), click.style("Could not compare. Invalid semver, From %s to %s." % (self.current_version, self.latest_version))))
+        else:
+            # Invalid Requirement (ie. GitHub Repository)
+            pass

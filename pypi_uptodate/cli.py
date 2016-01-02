@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 @click.command()
 @click.option('--requirement', '-r', default='requirements.txt', type=click.STRING, help='Specify the path of the requirements file.')
-@click.option('--demo', '-d', is_flag=True)
+@click.option('--demo', '-d', is_flag=True, help='Load the demo requirements.txt file that comes with the package.')
 def cli(requirement, demo):
     """
     PyPI Up-to-date\n

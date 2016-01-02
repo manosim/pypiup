@@ -8,10 +8,11 @@ setup(
     install_requires=[
         'click',
         'requests',
-        'semver'
+        'semantic_version'
     ],
     entry_points='''
         [console_scripts]
+        pypiuptodate=pypi_uptodate.cli:cli
         pypi_uptodate=pypi_uptodate.cli:cli
     ''',
 )
