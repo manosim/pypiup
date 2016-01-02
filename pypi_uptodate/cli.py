@@ -10,7 +10,6 @@ def cli(requirement):
     Check whether your PyPI requirements are up to date.
     """
 
-    click.echo("Opening: %s" % requirement)
     Requirements(requirement)
 
 if __name__ == '__main__':
