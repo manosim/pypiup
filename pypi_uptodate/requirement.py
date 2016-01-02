@@ -44,14 +44,16 @@ class Requirement(object):
         return valid_current and valid_latest
 
     def output_details(self):
-        click.echo("")
-        click.echo("%s" % self.name)
-
         if self.valid and self.valid_semver():
-            click.echo("VALID - COMPARE")
             # click.echo("\nPackage: %s \n Current: %s Latest: %s" % (self.name, self.current_version, self.latest_version))
+            comparison = semantic_version.compare(self.current_version, self.latest_version)
+            if (comparison >= 0):
+                click.secho("✓ %s: Up to date, %s." % (self.name, self.current_version), fg='green')
+            else:
+                click.secho("✗ %s: Needs update, From %s to %s." % (self.name, self.current_version, self.latest_version), fg='red')
+
         elif self.valid and not self.valid_semver():
-            click.echo("NOT VALID SEMVER - CANNOT COMPARE")
+            click.secho("✗ %s: Could not compare. Invalid semver, From %s to %s." % (self.name, self.current_version, self.latest_version), fg='cyan')
             # click.secho("\nSkipping non PyPI requirement...\n", fg='blue')
         else:
             click.echo("INVALID REQUIREMENT NAME?")
