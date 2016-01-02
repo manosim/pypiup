@@ -8,6 +8,7 @@ setup(
     install_requires=[
         'click',
         'requests',
+        'semver'
     ],
     entry_points='''
         [console_scripts]
