@@ -37,8 +37,8 @@ class Requirements(object):
                 self.show_details()
                 self.show_stats()
                 requirements_file.close()
-        except OSError:
-            return click.secho("Could not find %s. No such file or directory." % (requirements_file), fg='red')
+        except IOError:
+            return click.secho("Could not find %s. No such file or directory.\n" % (requirements_filename), fg='red')
 
     def show_details(self):
         click.echo()

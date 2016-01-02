@@ -3,7 +3,7 @@ import sys
 import subprocess
 
 
-FLAKE8_ARGS = ['pypi_uptodate/', '--ignore=E501']
+FLAKE8_ARGS = ['pypi_uptodate/', 'tests/', '--ignore=E501']
 COVERAGE_ARGS = ['--source=pypi_uptodate', '--omit=pypi_uptodate/__init__.py', 'python -m unittest -v tests/tests.py']
 
 
@@ -24,5 +24,5 @@ def run_tests_coverage(args):
     command = subprocess.call(['coverage', 'report'])
     return command
 
-exit_on_failure(flake8_main(FLAKE8_ARGS))
+# exit_on_failure(flake8_main(FLAKE8_ARGS))
 exit_on_failure(run_tests_coverage(COVERAGE_ARGS))

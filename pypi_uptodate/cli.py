@@ -1,6 +1,6 @@
 import os
 import click
-from requirements import Requirements
+from pypi_uptodate.requirements import Requirements
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
