@@ -22,7 +22,7 @@ class TestRequirementsMockedRequests(TestMockedRequests):
         self.assertIn("Up to date, 3.3.2.", result.output)
 
         # drfdocs
-        self.assertIn("Needs update, From 0.0.4 to 0.0.5.", result.output)
+        self.assertIn("Update Available, From 0.0.4 to 0.0.5.", result.output)
 
         self.assertIn("Total Requirements: 5", result.output)
         self.assertIn("Up to date: 1", result.output)
@@ -52,7 +52,7 @@ class TestRequirementsDemoMockedRequests(TestMockedDemoRequests):
         self.assertIn("Up to date, 3.3.2.", result.output)
 
         # django-crispy-forms
-        self.assertIn("Needs update, From 1.4.0 to 1.5.0.", result.output)
+        self.assertIn("Update Available, From 1.4.0 to 1.5.0.", result.output)
 
         # drfdocs
         self.assertIn("Up to date, 0.0.5.", result.output)

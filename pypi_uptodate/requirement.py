@@ -64,7 +64,7 @@ class Requirement(object):
             if self.status == "UPTODATE":
                 click.echo("\n%s\n  %s" % (click.style("✓ %s" % self.name, bold=True, fg='green'), click.style("Up to date, %s." % self.current_version)))
             elif self.status == "NEEDS_UPDATE":
-                click.echo("\n%s\n  %s" % (click.style("✗ %s" % self.name, bold=True, fg='red'), click.style("Needs update, From %s to %s." % (self.current_version, self.latest_version))))
+                click.echo("\n%s\n  %s" % (click.style("✗ %s" % self.name, bold=True, fg='red'), click.style("Update Available, From %s to %s." % (self.current_version, self.latest_version))))
             elif self.status == "INVALID_SEMVER":
                 click.echo("\n%s\n  %s" % (click.style("✗ %s" % self.name, bold=True, fg='cyan'), click.style("Could not compare. Invalid semver, From %s to %s." % (self.current_version, self.latest_version))))
         else:
