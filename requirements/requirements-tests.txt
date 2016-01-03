@@ -1,0 +1,7 @@
+Django==1.7.1
+djangorestframework==3.3.2
+drfdocs==0.0.4
+
+# commented-package==1.2.3
+testing-errors-abc==0.0.12
+git+https://github.com/ekonstantinidis/django-rest-framework-docs@63840e15b41661e57593935f863c7648f89bf473

@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 import click
-from requirement import Requirement
+from pypi_uptodate.requirement import Requirement
 
 
 class Requirements(object):
@@ -16,13 +16,14 @@ class Requirements(object):
             return True
         return False
 
-    def read_file(self, requirements_file):
-        click.secho("\nAttempting to read %s ...\n" % requirements_file, fg='magenta')
+    def read_file(self, requirements_filename):
+        click.secho("\nAttempting to read %s ...\n" % requirements_filename, fg='magenta')
 
         try:
-            requirements_file = open(requirements_file).read().splitlines()
+            requirements_file = open(requirements_filename)
+            requirements_file_lines = requirements_file.read().splitlines()
             with click.progressbar(
-                    iterable=requirements_file,
+                    iterable=requirements_file_lines,
                     label='Getting requirements details',
                     bar_template='%(label)s %(bar)s | %(info)s',
                     fill_char=click.style(u'█', fg='cyan'),
@@ -35,8 +36,9 @@ class Requirements(object):
                 self.requirements = requirements
                 self.show_details()
                 self.show_stats()
-        except OSError:
-            return click.secho("Could not find %s. No such file or directory." % (requirements_file), fg='red')
+                requirements_file.close()
+        except IOError:
+            return click.secho("Could not find %s. No such file or directory.\n" % (requirements_filename), fg='red')
 
     def show_details(self):
         click.echo()

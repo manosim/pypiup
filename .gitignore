@@ -17,3 +17,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# Coverage
+.coverage
+htmlcov/

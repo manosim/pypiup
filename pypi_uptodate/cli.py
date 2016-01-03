@@ -1,6 +1,6 @@
 import os
 import click
-from requirements import Requirements
+from pypi_uptodate.requirements import Requirements
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -15,7 +15,7 @@ def cli(requirement, demo):
     Check whether your PyPI requirements are up to date.
     """
     if demo:
-        demo_path = os.path.join(BASE_DIR, 'requirements-demo.txt')
+        demo_path = os.path.join(BASE_DIR, 'requirements/requirements-demo.txt')
         return Requirements(demo_path)
     Requirements(requirement)
 
