@@ -16,18 +16,18 @@ class TestRequirementsMockedRequests(TestMockedRequests):
         self.assertEqual(result.exit_code, 0)
 
         # Django
-        self.assertIn("Needs update, From 1.7.1 to 1.9.0.", result.output)
+        self.assertIn("Could not compare. Invalid semver, From 1.7.1 to 1.9.", result.output)
 
         # djangorestframework
         self.assertIn("Up to date, 3.3.2.", result.output)
 
         # drfdocs
-        self.assertIn("Up to date, 0.0.5.", result.output)
+        self.assertIn("Needs update, From 0.0.4 to 0.0.5.", result.output)
 
         self.assertIn("Total Requirements: 5", result.output)
-        self.assertIn("Up to date: 2", result.output)
+        self.assertIn("Up to date: 1", result.output)
         self.assertIn("Update available: 1", result.output)
-        self.assertIn("Invalid Semver: 0", result.output)
+        self.assertIn("Invalid Semver: 1", result.output)
         self.assertIn("Non PyPI Requirements: 2", result.output)
 
 
