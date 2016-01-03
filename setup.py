@@ -14,6 +14,7 @@ setup(
     install_requires=[
         'click',
         'requests',
+        'requirements-parser',
         'semantic_version'
     ],
     entry_points='''

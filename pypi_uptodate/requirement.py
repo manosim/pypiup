@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 import click
-import re
 import requests
 import semantic_version
 
@@ -24,10 +23,9 @@ class Requirement(object):
         self.setUp(requirement)
 
     def setUp(self, requirement):
-        regex = re.split("==", requirement)
         try:
-            self.name = regex[0]
-            self.current_version = regex[1]
+            self.name = requirement.name
+            self.current_version = requirement.specs[0][-1]
             self.get_package_info()
             self.compare()
         except IndexError:
