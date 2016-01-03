@@ -45,14 +45,14 @@ class TestRequirementsDemoMockedRequests(TestMockedDemoRequests):
         # Django
         self.assertIn("Could not compare. Invalid semver, From 1.7.1 to 1.9.", result.output)
 
+        # click
+        self.assertIn("Could not compare. Invalid semver, From 6.1 to 6.2.", result.output)
+
         # djangorestframework
         self.assertIn("Up to date, 3.3.2.", result.output)
 
         # django-crispy-forms
         self.assertIn("Needs update, From 1.4.0 to 1.5.0.", result.output)
-
-        # django-push-notifications
-        self.assertIn("Up to date, 1.3.1.", result.output)
 
         # drfdocs
         self.assertIn("Up to date, 0.0.5.", result.output)
@@ -61,9 +61,9 @@ class TestRequirementsDemoMockedRequests(TestMockedDemoRequests):
         self.assertIn("Up to date, 3.0.3.", result.output)
 
         self.assertIn("Total Requirements: 8", result.output)
-        self.assertIn("Up to date: 4", result.output)
+        self.assertIn("Up to date: 3", result.output)
         self.assertIn("Update available: 1", result.output)
-        self.assertIn("Invalid Semver: 1", result.output)
+        self.assertIn("Invalid Semver: 2", result.output)
         self.assertIn("Non PyPI Requirements: 2", result.output)
 
 
