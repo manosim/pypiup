@@ -13,11 +13,6 @@ class Requirements(object):
         self.file = self.read_file(requirements_file)
         self.requirements = []
 
-    def should_ignore_requirement(self, requirement):
-        if requirement.startswith("#") or requirement == "":
-            return True
-        return False
-
     def read_file(self, requirements_filename):
         click.secho("\nAttempting to read %s ...\n" % requirements_filename, fg='magenta')
 
