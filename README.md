@@ -3,16 +3,6 @@ Check whether your PyPI requirements are up to date.
 
 [![press][press-image]][press-url]
 
-### Development
-
-    pyvenv env
-    source env/bin/activate
-
-    pip install -r requirements.txt
-    python pypi_uptodate/cli.py --help
-    python pypi_uptodate/cli.py --demo
-
-
 ### Installation
 You can install `pypi-uptodate` through pypi.
 
@@ -34,6 +24,16 @@ You can either use `pypiuptodate` or `pypi-uptodate`. Use `--help` to see all th
       -d, --demo              Load the demo requirements.txt file that comes with
                               the package.
       --help                  Show this message and exit.
+
+
+### Development
+
+    pyvenv env
+    source env/bin/activate
+
+    pip install -r requirements.txt
+    python pypi_uptodate/cli.py --help
+    python pypi_uptodate/cli.py --demo
 
 
 ### Tests
