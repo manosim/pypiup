@@ -1,21 +1,21 @@
-# pypi-uptodate [![travis][travis-image]][travis-url] [![pypi][pypi-image]][pypi-url]
+# pypiup [![travis][travis-image]][travis-url] [![pypi][pypi-image]][pypi-url]
 Check whether your PyPI requirements are up to date.
 
 [![press][press-image]][press-url]
 
 ### Installation
-You can install `pypi-uptodate` through pypi.
+You can install `pypiup` through pypi.
 
-    sudo pip install pypi-uptodate
+    sudo pip install pypiup
 
 
 ### Usage
-You can either use `pypiuptodate` or `pypi-uptodate`. Use `--help` to see all the available options.
+The command you can use is `pypiup`. Use `--help` to see all the available options.
 
-    > pypiuptodate --help
-    Usage: pypiuptodate [OPTIONS]
+    > pypiup --help
+    Usage: pypiup [OPTIONS]
 
-      PyPI Up-to-date
+      PyPIup
       Check whether your PyPI requirements are up to date.
 
     Options:
@@ -32,8 +32,8 @@ You can either use `pypiuptodate` or `pypi-uptodate`. Use `--help` to see all th
     source env/bin/activate
 
     pip install -r requirements.txt
-    python pypi_uptodate/cli.py --help
-    python pypi_uptodate/cli.py --demo
+    python pypiup/cli.py --help
+    python pypiup/cli.py --demo
 
 
 ### Tests
@@ -52,12 +52,12 @@ In order to run the tests you will have to run:
 6. Make sure tests are passing
 
 
-[travis-image]: https://travis-ci.com/ekonstantinidis/pypi-uptodate.svg?token=9QR4ewbqbkEmHps6q5sq&branch=master
-[travis-url]: https://travis-ci.com/ekonstantinidis/pypi-uptodate
+[travis-image]: https://travis-ci.com/ekonstantinidis/pypiup.svg?token=9QR4ewbqbkEmHps6q5sq&branch=master
+[travis-url]: https://travis-ci.com/ekonstantinidis/pypiup
 
-[pypi-image]: https://badge.fury.io/py/pypi-uptodate.svg
-[pypi-url]: https://pypi.python.org/pypi/pypi-uptodate/
+[pypi-image]: https://badge.fury.io/py/pypiup.svg
+[pypi-url]: https://pypi.python.org/pypi/pypiup/
 
 
 [press-image]: https://cloud.githubusercontent.com/assets/6333409/12076913/1f9454dc-b1b9-11e5-87c3-09a8570f21fc.png
-[press-url]: https://github.com/ekonstantinidis/pypi-uptodate
+[press-url]: https://github.com/ekonstantinidis/pypiup

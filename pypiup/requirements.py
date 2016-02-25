@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 import click
-from pypi_uptodate.requirement import Requirement
+from pypiup.requirement import Requirement
 
 
 class Requirements(object):
