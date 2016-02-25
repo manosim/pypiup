@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 @click.option('--demo', '-d', is_flag=True, help='Load the demo requirements.txt file that comes with the package.')
 def cli(requirement, demo):
     """
-    PyPI Up-to-date\n
+    PyPIup\n
     Check whether your PyPI requirements are up to date.
     """
     if demo:
