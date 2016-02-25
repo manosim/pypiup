@@ -4,7 +4,7 @@ from __future__ import absolute_import
 
 import click
 import requirements as requirements_parser
-from pypi_uptodate.requirement import Requirement
+from pypiup.requirement import Requirement
 
 
 class Requirements(object):

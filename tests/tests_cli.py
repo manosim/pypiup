@@ -1,6 +1,6 @@
 import unittest
 from click.testing import CliRunner
-from pypi_uptodate.cli import cli
+from pypiup.cli import cli
 from tests.mocks import TestMockedRequests, TestMockedDemoRequests
 
 
