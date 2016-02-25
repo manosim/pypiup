@@ -3,8 +3,8 @@ import sys
 import subprocess
 
 
-FLAKE8_ARGS = ['pypi_uptodate/', 'tests/', '--ignore=E501']
-COVERAGE_ARGS = ['--source=pypi_uptodate', '--omit=pypi_uptodate/__init__.py', 'python -m unittest -v tests/tests.py']
+FLAKE8_ARGS = ['pypiup/', 'tests/', '--ignore=E501']
+COVERAGE_ARGS = ['--source=pypiup', '--omit=pypiup/__init__.py', 'python -m unittest -v tests/tests.py']
 
 
 def exit_on_failure(command, message=None):
@@ -20,7 +20,7 @@ def flake8_main(args):
 
 
 def run_tests_coverage(args):
-    command = subprocess.call('coverage run --source=pypi_uptodate --omit=pypi_uptodate/__init__.py -m unittest tests.tests_cli', shell=True)
+    command = subprocess.call('coverage run --source=pypiup --omit=pypiup/__init__.py -m unittest tests.tests_cli', shell=True)
     command = subprocess.call(['coverage', 'report'])
     return command
 
