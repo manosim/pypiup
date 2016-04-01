@@ -1,7 +1,13 @@
-Django==1.7.1
+Django >=1.7, <1.8
 djangorestframework==3.3.2
 drfdocs==0.0.4
+psycopg2
+Library>=0.2
 
 # commented-package==1.2.3
 testing-errors-abc==0.0.12
 git+https://github.com/ekonstantinidis/django-rest-framework-docs@63840e15b41661e57593935f863c7648f89bf473
+-e git+https://github.com/dstufft/jutils.git#egg=jutils
+--editable git://git.myproject.org/MyProject.git@da39a3ee5e6b4b0d3255bfef95601890afd80709#egg=MyProject
+MyPackage[PDF]==3.0
+-r requirements/requirements-demo.txt

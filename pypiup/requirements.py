@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from __future__ import absolute_import
 
 import click
+import requirements as requirements_parser
 from pypiup.requirement import Requirement
 
 
@@ -11,32 +13,28 @@ class Requirements(object):
         self.file = self.read_file(requirements_file)
         self.requirements = []
 
-    def should_ignore_requirement(self, requirement):
-        if requirement.startswith("#") or requirement == "":
-            return True
-        return False
-
     def read_file(self, requirements_filename):
         click.secho("\nAttempting to read %s ...\n" % requirements_filename, fg='magenta')
 
         try:
             requirements_file = open(requirements_filename)
-            requirements_file_lines = requirements_file.read().splitlines()
+            reqs = requirements_parser.parse(requirements_file.read())
+
             with click.progressbar(
-                    iterable=requirements_file_lines,
+                    iterable=reqs,
                     label='Getting requirements details',
                     bar_template='%(label)s %(bar)s | %(info)s',
                     fill_char=click.style(u'█', fg='cyan'),
                     empty_char=' ') as bar:
                 requirements = []
-                for line in bar:
-                    if not self.should_ignore_requirement(line):
-                        requirement = Requirement(line)
-                        requirements.append(requirement)
+                for req in bar:
+                    requirement = Requirement(req)
+                    requirements.append(requirement)
                 self.requirements = requirements
                 self.show_details()
                 self.show_stats()
                 requirements_file.close()
+
         except IOError:
             return click.secho("Could not find %s. No such file or directory.\n" % (requirements_filename), fg='red')
 

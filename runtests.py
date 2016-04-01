@@ -19,10 +19,16 @@ def flake8_main(args):
     return command
 
 
-def run_tests_coverage(args):
+def run_tests(args):
     command = subprocess.call('coverage run --source=pypiup --omit=pypiup/__init__.py -m unittest tests.tests_cli', shell=True)
+    return command
+
+
+def run_coverage():
     command = subprocess.call(['coverage', 'report'])
     return command
 
+
 exit_on_failure(flake8_main(FLAKE8_ARGS))
-exit_on_failure(run_tests_coverage(COVERAGE_ARGS))
+exit_on_failure(run_tests(COVERAGE_ARGS))
+exit_on_failure(run_coverage())
