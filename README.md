@@ -52,12 +52,11 @@ In order to run the tests you will have to run:
 6. Make sure tests are passing
 
 
-[travis-image]: https://travis-ci.com/ekonstantinidis/pypiup.svg?token=9QR4ewbqbkEmHps6q5sq&branch=master
-[travis-url]: https://travis-ci.com/ekonstantinidis/pypiup
+[travis-image]: https://travis-ci.org/ekonstantinidis/pypiup.svg?branch=master
+[travis-url]: https://travis-ci.org/ekonstantinidis/pypiup
 
 [pypi-image]: https://badge.fury.io/py/pypiup.svg
 [pypi-url]: https://pypi.python.org/pypi/pypiup/
-
 
 [press-image]: https://cloud.githubusercontent.com/assets/6333409/12076913/1f9454dc-b1b9-11e5-87c3-09a8570f21fc.png
 [press-url]: https://github.com/ekonstantinidis/pypiup
