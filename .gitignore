@@ -13,6 +13,7 @@ lib/
 lib64/
 parts/
 sdist/
+.tox/
 var/
 *.egg-info/
 .installed.cfg

@@ -4,7 +4,13 @@ import subprocess
 
 
 FLAKE8_ARGS = ['pypiup/', 'tests/', '--ignore=E501']
-COVERAGE_ARGS = ['--source=pypiup', '--omit=pypiup/__init__.py', 'python -m unittest -v tests/tests.py']
+NOSE2_ARGS = [
+    '--with-coverage',
+    '--coverage', 'pypiup',
+    '--coverage-report', 'term-missing',
+    '--coverage-report', 'html',
+    '--verbose'
+]
 
 
 def exit_on_failure(command, message=None):
@@ -13,16 +19,16 @@ def exit_on_failure(command, message=None):
 
 
 def flake8_main(args):
-    print('Running: flake8', FLAKE8_ARGS)
+    print('Running: flake8 %s' % FLAKE8_ARGS)
     command = subprocess.call(['flake8'] + args)
-    print("" if command else "Success. flake8 passed.")
+    print("" if command else "Success. flake8 passed.\n")
     return command
 
 
-def run_tests_coverage(args):
-    command = subprocess.call('coverage run --source=pypiup --omit=pypiup/__init__.py -m unittest tests.tests_cli', shell=True)
-    command = subprocess.call(['coverage', 'report'])
+def run_tests(args):
+    print('Running: nose2 -v %s' % " ".join(args))
+    command = subprocess.call(['nose2'] + args)
     return command
 
 exit_on_failure(flake8_main(FLAKE8_ARGS))
-exit_on_failure(run_tests_coverage(COVERAGE_ARGS))
+exit_on_failure(run_tests(NOSE2_ARGS))

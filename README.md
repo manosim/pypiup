@@ -1,4 +1,4 @@
-# pypiup [![travis][travis-image]][travis-url] [![pypi][pypi-image]][pypi-url]
+# pypiup [![travis][travis-image]][travis-url] [![codecov][codecov-image]][codecov-url] [![pypi][pypi-image]][pypi-url]
 Check whether your PyPI requirements are up to date.
 
 [![press][press-image]][press-url]
@@ -54,6 +54,9 @@ In order to run the tests you will have to run:
 
 [travis-image]: https://travis-ci.org/ekonstantinidis/pypiup.svg?branch=master
 [travis-url]: https://travis-ci.org/ekonstantinidis/pypiup
+
+[codecov-image]: https://codecov.io/github/ekonstantinidis/pypiup/coverage.svg?branch=master
+[codecov-url]: https://codecov.io/github/ekonstantinidis/pypiup?branch=master
 
 [pypi-image]: https://badge.fury.io/py/pypiup.svg
 [pypi-url]: https://pypi.python.org/pypi/pypiup/
