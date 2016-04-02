@@ -76,5 +76,5 @@ class TestRequirementsFileNotFound(unittest.TestCase):
         self.assertEqual(result.exit_code, 0)
         self.assertIn("Could not find requirements-fake.txt. No such file or directory.", result.output)
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
