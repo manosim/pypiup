@@ -1,5 +1,5 @@
 # pypiup [![travis][travis-image]][travis-url] [![codecov][codecov-image]][codecov-url] [![pypi][pypi-image]][pypi-url]
-Check whether your PyPI requirements are up to date.
+Check whether your PyPI requirements are up to date. [Demo](https://asciinema.org/a/41124)
 
 [![press][press-image]][press-url]
 
