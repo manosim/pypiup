@@ -61,5 +61,5 @@ In order to run the tests you will have to run:
 [pypi-image]: https://badge.fury.io/py/pypiup.svg
 [pypi-url]: https://pypi.python.org/pypi/pypiup/
 
-[press-image]: https://cloud.githubusercontent.com/assets/6333409/12076913/1f9454dc-b1b9-11e5-87c3-09a8570f21fc.png
+[press-image]: https://cloud.githubusercontent.com/assets/6333409/14223693/82be7bce-f87b-11e5-9fe7-abf12b4bd235.png
 [press-url]: https://github.com/ekonstantinidis/pypiup
