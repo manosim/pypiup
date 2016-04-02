@@ -7,7 +7,7 @@ setup(
     author_email="manos@iamemmanouil.com",
     packages=find_packages(),
     include_package_data=True,
-    url="https://github.com/ekonstantinidis/pypi",
+    url="https://github.com/ekonstantinidis/pypiup",
     license='BSD',
     description="Check whether your PyPI requirements are up to date.",
     long_description=open("README.md").read(),
