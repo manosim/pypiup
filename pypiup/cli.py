@@ -14,6 +14,15 @@ def cli(requirement, demo):
     PyPIup\n
     Check whether your PyPI requirements are up to date.
     """
+
+    print("\n          ______   __  __     ______   __        __  __     ______  ")
+    print("         /\  == \ /\ \_\ \   /\  == \ /\ \      /\ \/\ \   /\  == \ ")
+    print("         \ \  _-/ \ \____ \  \ \  _-/ \ \ \     \ \ \_\ \  \ \  _-/ ")
+    print("          \ \_\    \/\_____\  \ \_\    \ \_\     \ \_____\  \ \_\   ")
+    print("           \/_/     \/_____/   \/_/     \/_/      \/_____/   \/_/   ")
+    print("\n                                   PyPIup")
+    print("                  https://github.com/ekonstantinidis/pypiup")
+
     if demo:
         demo_path = os.path.join(BASE_DIR, 'requirements/requirements-demo.txt')
         return Requirements(demo_path)
