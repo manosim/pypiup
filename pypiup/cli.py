@@ -1,3 +1,4 @@
+import __init__
 import os
 import click
 from pypiup.requirements import Requirements
@@ -14,6 +15,15 @@ def cli(requirement, demo):
     PyPIup\n
     Check whether your PyPI requirements are up to date.
     """
+
+    print("\n ______   __  __     ______   __        __  __     ______  ")
+    print("/\  == \ /\ \_\ \   /\  == \ /\ \      /\ \/\ \   /\  == \ ")
+    print("\ \  _-/ \ \____ \  \ \  _-/ \ \ \     \ \ \_\ \  \ \  _-/ ")
+    print(" \ \_\    \/\_____\  \ \_\    \ \_\     \ \_____\  \ \_\   ")
+    print("  \/_/     \/_____/   \/_/     \/_/      \/_____/   \/_/   ")
+    print("\nhttps://github.com/ekonstantinidis/pypiup")
+    print("Version %s" % __init__.__version__)
+
     if demo:
         demo_path = os.path.join(BASE_DIR, 'requirements/requirements-demo.txt')
         return Requirements(demo_path)
