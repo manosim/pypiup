@@ -52,14 +52,14 @@ In order to run the tests you will have to run:
 6. Make sure tests are passing
 
 
-[travis-image]: https://travis-ci.org/ekonstantinidis/pypiup.svg?branch=master
-[travis-url]: https://travis-ci.org/ekonstantinidis/pypiup
+[travis-image]: https://travis-ci.org/manosim/pypiup.svg?branch=master
+[travis-url]: https://travis-ci.org/manosim/pypiup
 
-[codecov-image]: https://codecov.io/github/ekonstantinidis/pypiup/coverage.svg?branch=master
-[codecov-url]: https://codecov.io/github/ekonstantinidis/pypiup?branch=master
+[codecov-image]: https://codecov.io/github/manosim/pypiup/coverage.svg?branch=master
+[codecov-url]: https://codecov.io/github/manosim/pypiup?branch=master
 
 [pypi-image]: https://badge.fury.io/py/pypiup.svg
 [pypi-url]: https://pypi.python.org/pypi/pypiup/
 
 [press-image]: https://cloud.githubusercontent.com/assets/6333409/14223693/82be7bce-f87b-11e5-9fe7-abf12b4bd235.png
-[press-url]: https://github.com/ekonstantinidis/pypiup
+[press-url]: https://github.com/manosim/pypiup
