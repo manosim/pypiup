@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from multiprocessing.dummy import Pool as ThreadPool
+
 import click
 from pypiup.requirement import Requirement
 
@@ -22,17 +24,22 @@ class Requirements(object):
         try:
             requirements_file = open(requirements_filename)
             requirements_file_lines = requirements_file.read().splitlines()
+            pool = ThreadPool()
             with click.progressbar(
                     iterable=requirements_file_lines,
                     label='Getting requirements details',
                     bar_template='%(label)s %(bar)s | %(info)s',
                     fill_char=click.style(u'█', fg='cyan'),
                     empty_char=' ') as bar:
-                requirements = []
-                for line in bar:
-                    if not self.should_ignore_requirement(line):
-                        requirement = Requirement(line)
-                        requirements.append(requirement)
+                lines = (
+                    line for line in bar
+                    if not self.should_ignore_requirement(line)
+                )
+                requirements = pool.map(Requirement, lines)
+                # cleanup and wait for work to finish
+                pool.close()
+                pool.join()
+
                 self.requirements = requirements
                 self.show_details()
                 self.show_stats()
