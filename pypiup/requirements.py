@@ -25,17 +25,19 @@ class Requirements(object):
             requirements_file = open(requirements_filename)
             requirements_file_lines = requirements_file.read().splitlines()
             pool = ThreadPool()
+            lines = [
+                line for line in requirements_file_lines
+                if not self.should_ignore_requirement(line)
+            ]
             with click.progressbar(
-                    iterable=requirements_file_lines,
+                    length=len(lines),
                     label='Getting requirements details',
                     bar_template='%(label)s %(bar)s | %(info)s',
                     fill_char=click.style(u'█', fg='cyan'),
                     empty_char=' ') as bar:
-                lines = (
-                    line for line in bar
-                    if not self.should_ignore_requirement(line)
-                )
-                requirements = pool.map(Requirement, lines)
+                # Apply decorator
+                req_with_upd = barupdate(bar)(Requirement)
+                requirements = pool.map(req_with_upd, lines)
                 # cleanup and wait for work to finish
                 pool.close()
                 pool.join()
@@ -76,3 +78,16 @@ class Requirements(object):
         click.echo("  Update available: %s" % stat_needs_update)
         click.echo("  Invalid Semver: %s" % stat_invalid_semver)
         click.echo("  Non PyPI Requirements: %s" % stat_invalid)
+
+
+def barupdate(bar_obj, size=1):
+    """Decorator for updating progressbar after
+    object instantiation complete.
+    """
+    def decorator(cls):
+        def inner(*args, **kwargs):
+            instance = cls(*args, **kwargs)
+            bar_obj.update(size)
+            return instance
+        return inner
+    return decorator
