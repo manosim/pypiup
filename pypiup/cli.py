@@ -21,7 +21,7 @@ def cli(requirement, demo):
     print("          \ \_\    \/\_____\  \ \_\    \ \_\     \ \_____\  \ \_\   ")
     print("           \/_/     \/_____/   \/_/     \/_/      \/_____/   \/_/   ")
     print("\n                                   PyPIup")
-    print("                  https://github.com/ekonstantinidis/pypiup")
+    print("                     https://github.com/manosim/pypiup")
 
     if demo:
         demo_path = os.path.join(BASE_DIR, 'requirements/requirements-demo.txt')
