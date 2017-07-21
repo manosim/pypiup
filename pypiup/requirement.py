@@ -27,7 +27,8 @@ class Requirement(object):
         regex = re.split("==", requirement)
         try:
             self.name = regex[0]
-            self.current_version = regex[1]
+            # Ignore inline comments if any
+            self.current_version = regex[1].split("#")[0].rstrip()
             self.get_package_info()
             self.compare()
         except IndexError:
