@@ -1,10 +1,12 @@
 language: python
 
-sudo: false
+python:
+- '2.7'
+- '3.4'
+- '3.5'
+- '3.6'
 
-env:
-  - TOX_ENV=py27
-  - TOX_ENV=py34
+sudo: false
 
 matrix:
   fast_finish: true
@@ -13,14 +15,10 @@ before_install:
   - pip install codecov
 
 install:
-  - pip install tox
+  - pip install -r requirements.txt
 
 script:
-  - tox -e $TOX_ENV
+  - python runtests.py
 
 after_success:
   - codecov
-
-notifications:
-  slack:
-    secure: oZ8RyQDjZ5bEshG22qyETsVwBeUrnOJi42TKkL+bPteyr3TOu0D118fLsYATyUhJZL4oo/lEeV0lbswRpCYIaxES4Xo+0CbBc5keaF3jGU8N7VbjxCLMpVEATGE0r3C0xxxj3oh5JRbS8JWPCNPFyDVgZaaC/HgHHiijDk/QmF0SrRKRwH+rAzY/nqNjERboGTn+/jBSchUfy/T0ex1PpZlRj3LDiRD3SBmMRL9qPUgqCT++N/PpVSEexDgmAQ7P4uBzQizqOMpDuU5KZ4PLBzHoLMLa8UbQlWQ72E23lZHeJFzsjpUB1IqwPli1WWtmtRXgegxeAYCfV3729YbYU9/3TaU+D28fcHeEYGcC9eP9jz/Wk+adKfRcPI5Wvd2xXpaVHKYNO1jqrf9BZwndzylZyzuQQpWyJK8ilgGHRjwR+K/Q0v9TDofbsFZGb9z8XuAuwrz/ZdOgNCY/QHr/BBu5qDiuTPSZ4hfZTK3Tab19gd6RwuvbO+4Q/sOoNOPvAEY9Fp6j0RNHBX3t0+pb2kWt80zN9WstZ71Jygi9qqCpdbxzhb/9BWiWzSWGuBwHzN3HVq9EyeOJwEWdSfGSc7jeh1L+BEqV5q0GlAIfApkJjY74IRkBksrf/MZD6t9wLmJ+iz+zL60DB9/9xx5rMuekpuqAMwV94rGi8Qj5SqA=

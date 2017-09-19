@@ -1,6 +1,6 @@
 Django==1.7.1
 djangorestframework==3.3.2
-drfdocs==0.0.4
+drfdocs==0.0.4               # via somelib
 
 # commented-package==1.2.3
 testing-errors-abc==0.0.12
