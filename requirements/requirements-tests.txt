@@ -1,4 +1,4 @@
-Django==1.7.1
+Django==1.11.23
 djangorestframework==3.3.2
 drfdocs==0.0.4               # via somelib
 
