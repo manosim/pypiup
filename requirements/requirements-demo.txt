@@ -1,4 +1,4 @@
-Django==1.7.1
+Django==2.2.24
 click==6.1
 djangorestframework==3.3.2
 django-crispy-forms==1.4.0
